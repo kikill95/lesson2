@@ -2,29 +2,25 @@
 require 'yaml'
 
 class Ball
-  attr_accessor :answers, :colors
-
-  def initialize
-    @answers = YAML.load_file('answers.yml')
-    @colors = { red: 31, green: 32, yellow: 33, blue: 34 }
-  end
+  ANSWERS = YAML.load_file('answers.yml')
+  COLORS = { red: 31, green: 32, yellow: 33, blue: 34 }
 
   def color(answer)
     case answer
     when 0..4
-      @colors[:red]
+      COLORS[:red]
     when 5..9
-      @colors[:green]
+      COLORS[:green]
     when 10..14
-      @colors[:yellow]
+      COLORS[:yellow]
     else
-      @colors[:blue]
+      COLORS[:blue]
     end
   end
 
   def shake
-    random = rand(@answers.length)
-    puts "\e[#{color(random)}m#{@answers[random]}\e[0m"
-    @answers[random]
+    random = rand(ANSWERS.length)
+    puts "\e[#{color(random)}m#{ANSWERS[random]}\e[0m"
+    ANSWERS[random]
   end
 end
