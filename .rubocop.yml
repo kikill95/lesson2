@@ -1,2 +1,14 @@
 Documentation:
   Enabled: false
+
+#  current options added only for class Pet
+ClassLength:
+  Max: 250
+MethodLength:
+  Max: 100
+PerceivedComplexity:
+  Max: 10
+CyclomaticComplexity:
+  Max: 15
+AbcSize:
+  Max: 50
